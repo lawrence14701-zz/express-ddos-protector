@@ -1,8 +1,8 @@
 class TokenBucket {
-	constructor(capacity, fillPerSecond) {
+	constructor(capacity, fillPerSecond, timeInMs) {
 		this.capacity = capacity;
 		this.tokens = capacity;
-		setInterval(() => this.addToken(), 1000 / fillPerSecond);
+		setInterval(() => this.addToken(), timeInMs / fillPerSecond);
 	}
 
 	addToken() {

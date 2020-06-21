@@ -7,7 +7,8 @@ const app = express();
 const port = 3000;
 
 // Apply to all requests
-app.get('/', limitRequests(1, 1), (req, res) => {
+app.get('/', limitRequests(1, 2, 1000), (req, res) => {
+	console.log(Blacklist);
 	if (Blacklist.includes(req.ip)) {
 		res.send('access denied');
 	} else {
