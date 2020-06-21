@@ -1,5 +1,5 @@
 {
-	"name": "token_bucket_ddos",
+	"name": "bucket_ddos",
 	"version": "1.0.0",
 	"description": "",
 	"main": "limiter.js",
