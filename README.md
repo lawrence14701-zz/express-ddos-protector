@@ -8,21 +8,20 @@
 
 ### import the npm package
 
-#### const { limitRequests, Blacklist } = require('./Limiter');
+#### const Limiter = require('express-bucket-rate-limiter');
 
 ### This package works as a callback function, to use it please refer to this example.
 
 ```javascript
 const express = require('express');
-const Limiter = require('./Limiter');
+const Limiter = require('express-bucket-limiter');
 const limit = new Limiter();
-
 const app = express();
 const port = 3000;
 
 // Apply to all requests
 app.get('/', limit.limitRequests(1, 2, 1000), (req, res) => {
-	const { Blacklist } = limit;
+	const Blacklist = limit.Blacklist;
 	if (Blacklist.includes(req.ip)) {
 		res.send('access denied');
 	} else {

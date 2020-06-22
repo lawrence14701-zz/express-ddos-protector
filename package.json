@@ -1,5 +1,5 @@
 {
-	"name": "express-bucket-ddos",
+	"name": "express-bucket-rate-limiter",
 	"version": "1.0.0",
 	"description": "",
 	"main": "limiter.js",

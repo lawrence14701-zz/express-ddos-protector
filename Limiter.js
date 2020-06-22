@@ -8,6 +8,7 @@ class Limiter {
 	limitRequests(perSecond, maxReq, timeInMs) {
 		//map of all the ip addresses
 		const buckets = new Map();
+		const that = this;
 
 		// Return an Express middleware function
 		return function limitRequestsMiddleware(req, res, next) {
@@ -19,8 +20,8 @@ class Limiter {
 				next();
 			} else {
 				res.send('Your Ip has been blacklisted');
-				if (!Blacklist.includes(req.ip)) {
-					Blacklist.push(req.ip);
+				if (!that.Blacklist.includes(req.ip)) {
+					that.Blacklist.push(req.ip);
 				}
 			}
 		};
