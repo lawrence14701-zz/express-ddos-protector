@@ -2,7 +2,7 @@
 
 # Bucket strategy
 
-## Protects Api from malcious users.
+## Protects Api from malicious users.
 
 ### To use this npm package please do \$npm i bucket-ddos
 
@@ -14,7 +14,6 @@
 
 ```javascript
 const express = require('express');
-const fs = require('fs');
 const { limitRequests, Blacklist } = require('./Limiter');
 
 const app = express();
