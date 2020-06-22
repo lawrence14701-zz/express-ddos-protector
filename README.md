@@ -14,14 +14,15 @@
 
 ```javascript
 const express = require('express');
-const { limitRequests, Blacklist } = require('./Limiter');
+const Limiter = require('./Limiter');
+const limit = new Limiter();
 
 const app = express();
 const port = 3000;
 
 // Apply to all requests
-app.get('/', limitRequests(1, 2, 1000), (req, res) => {
-	console.log(Blacklist);
+app.get('/', limit.limitRequests(1, 2, 1000), (req, res) => {
+	const { Blacklist } = limit;
 	if (Blacklist.includes(req.ip)) {
 		res.send('access denied');
 	} else {

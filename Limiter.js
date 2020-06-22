@@ -27,4 +27,4 @@ class Limiter {
 	}
 }
 
-module.exports = { Limiter };
+module.exports = Limiter;
