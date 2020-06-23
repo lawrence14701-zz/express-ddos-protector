@@ -14,7 +14,7 @@
 
 ```javascript
 const express = require('express');
-const Limiter = require('express-bucket-limiter');
+const Limiter = require('express-ddos-protector');
 const limit = new Limiter();
 const app = express();
 const port = 3000;
@@ -32,6 +32,12 @@ app.get('/', limit.limitRequests(1, 2, 1000), (req, res) => {
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 ```
 
-### limiter function takes in three parameters (bucketFillPerInterval, maxReqInBucke, and intervalToFillBucket)
+## limiter function takes in three parameters (perSecond, maxReq, timeInMs)
+
+## perSecond represents how fast you are filling the bucket per second
+
+## maxReq represents the max amount of req a bucket can hold.
 
 ### In the above example I am filling the bucket once per second. If the user depletes the bucket quicker than it can fill up than he will be inserted in a blackList array. The bucket size in this example is two and I am filling the bucket once every 1000 ms (1 second)
+
+[Github Link](https://github.com/lawrence14701/express-ddos-protector)
